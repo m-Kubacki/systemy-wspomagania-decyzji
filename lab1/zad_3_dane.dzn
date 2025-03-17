@@ -1,0 +1,4 @@
+n = 6;
+ceny = [215, 275, 335, 355, 420, 580];
+nazwy = ["owoce", "frytki", "salatka", "skrzydelka", "paluszki", "zestaw_probny"]; 
+target = 1505;
