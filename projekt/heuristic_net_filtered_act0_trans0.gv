@@ -1,0 +1,49 @@
+// Heuristic Net
+digraph {
+	graph [rankdir=LR]
+	node [fillcolor="#FFFFCC" shape=box style="rounded,filled"]
+	ArchiveRepair [label="ArchiveRepair
+(1000)" fillcolor="#FF99334d"]
+	InformUser [label="InformUser
+(1102)" fillcolor="#FF993349"]
+	TestRepair [label="TestRepair
+(3016)" fillcolor="#FF993300"]
+	RepairSimple [label="RepairSimple
+(1570)" fillcolor="#FF993337"]
+	AnalyzeDefect [label="AnalyzeDefect
+(2208)" fillcolor="#FF99331f"]
+	RestartRepair [label="RestartRepair
+(406)" fillcolor="#FF993363"]
+	RepairComplex [label="RepairComplex
+(1449)" fillcolor="#FF99333c"]
+	Register [label="Register
+(1104)" fillcolor="#FF993349"]
+	Register -> AnalyzeDefect [label=1104 penwidth=5.14039039039039]
+	AnalyzeDefect -> AnalyzeDefect [label=1104 penwidth=5.14039039039039]
+	AnalyzeDefect -> RepairComplex [label=528 penwidth=2.978228228228228]
+	RepairComplex -> RepairComplex [label=414 penwidth=2.5503003003003]
+	RepairComplex -> TestRepair [label=720 penwidth=3.698948948948949]
+	TestRepair -> TestRepair [label=1333 penwidth=6.0]
+	TestRepair -> InformUser [label=472 penwidth=2.768018018018018]
+	InformUser -> ArchiveRepair [label=205 penwidth=1.7657657657657657]
+	AnalyzeDefect -> RepairSimple [label=421 penwidth=2.5765765765765765]
+	RepairSimple -> RepairSimple [label=626 penwidth=3.346096096096096]
+	RepairSimple -> TestRepair [label=783 penwidth=3.9354354354354357]
+	TestRepair -> RestartRepair [label=341 penwidth=2.2762762762762763]
+	RestartRepair -> RepairSimple [label=300 penwidth=2.1223723723723724]
+	RepairSimple -> InformUser [label=161 penwidth=1.6006006006006006]
+	InformUser -> RepairSimple [label=223 penwidth=1.8333333333333333]
+	TestRepair -> ArchiveRepair [label=795 penwidth=3.9804804804804808]
+	RepairComplex -> InformUser [label=313 penwidth=2.171171171171171]
+	InformUser -> RepairComplex [label=402 penwidth=2.505255255255255]
+	InformUser -> TestRepair [label=180 penwidth=1.671921921921922]
+	AnalyzeDefect -> InformUser [label=155 penwidth=1.578078078078078]
+	RestartRepair -> RepairComplex [label=105 penwidth=1.3903903903903905]
+	InformUser -> RestartRepair [label=65 penwidth=1.2402402402402402]
+	RestartRepair -> InformUser [label=1 penwidth=1.0]
+	start [label="" fillcolor="#90EE90" fixedsize=true shape=circle width=0.3]
+	start -> Register
+	end [label="" fillcolor="#FFB6C1" fixedsize=true shape=doublecircle width=0.3]
+	ArchiveRepair
+	ArchiveRepair -> end
+}
